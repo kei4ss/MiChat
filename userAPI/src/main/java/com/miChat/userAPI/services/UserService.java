@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface UserService {
     List<UserModel> getAll();
-    Optional<UserModel> getById(Long id);
+    Optional<UserModel> getById(String id);
     UserModel create(UserCreateRequestBody body);
-    Boolean delete (Long id);
+    Boolean delete (String id);
 }

@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<UserModel>> getById(@PathVariable Long id){
+    public ResponseEntity<Optional<UserModel>> getById(@PathVariable String id){
         Optional<UserModel> user = userService.getById(id);
         return user.isPresent()?ResponseEntity.ok(user):ResponseEntity.notFound().build();
     }
@@ -44,7 +43,7 @@ public class UserController {
 
     // ENDPOINT: /api/users/9
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){                                          // <- @PathVariable get the URL's vars
+    public ResponseEntity<Void> delete(@PathVariable String id){                                          // <- @PathVariable get the URL's vars
         boolean deleted = userService.delete(id);
         return deleted?ResponseEntity.noContent().build():ResponseEntity.notFound().build();
     }

@@ -13,7 +13,7 @@ public class UserCreateRequestBody {
     private String email;
     private String password;
 
-    public UserModel toModel(int id){
-        return new UserModel(id, name, email, password, false);
+    public UserModel toModel(){
+        return new UserModel(name, email, password);
     }
 }

@@ -1,0 +1,6 @@
+services:
+  api:
+    build: ./userAPI/
+    container_name: api-java
+    ports:
+      - "8080:8080"
